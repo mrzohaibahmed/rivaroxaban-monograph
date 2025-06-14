@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Rivaroxaban Drug Monograph</title>
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        /* Reset & base */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-padding-top: 100px;
+            /* Added to offset sticky header height */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-top: 0;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #312e81;
+        }
+
+        h3 {
+            font-size: 1.375rem;
+            color: #4338ca;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin: 0.6rem 0 1rem 0;
+            color: #4b5563;
+        }
+
+        ul,
+        ol {
+            margin: 0.5rem 0 1.2rem 1.5rem;
+            color: #4b5563;
+        }
+
+        li {
+            margin: 0.4rem 0;
+        }
+
+        strong {
+            color: #1e3a8a;
+        }
+
+        /* Layout */
+        header,
+        footer {
+            background-color: #1e40af;
+            color: white;
+            text-align: center;
+            padding: 1.25rem 1rem;
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            margin-bottom: 0.2rem;
+        }
+
+        header h2 {
+            font-weight: 600;
+            color: #bfdbfe;
+            font-size: 1.25rem;
+            margin-top: 0;
+        }
+
+        main {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 2rem auto 3rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgb(0 0 0 / 0.05);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 6px solid #4338ca;
+            transition: box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .identifier-flex {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .identifier-img {
+            max-width: 180px;
+            flex-shrink: 0;
+            border-radius: 8px;
+        }
+
+        .identifier-text {
+            flex: 1;
+        }
+
+        /* Responsive: Stack on mobile */
+        @media (max-width: 640px) {
+            .identifier-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+            }
+
+            .identifier-text {
+                width: 100%;
+            }
+        }
+
+        section.section-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        section:hover {
+            box-shadow: 0 10px 25px rgb(67 56 202 / 0.25);
+        }
+
+        /* Grid layout */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem 3rem;
+        }
+
+        /* Section titles with icon */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4338ca;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title:hover {
+            transform: scale(1.05);
+        }
+
+        .material-icons {
+            font-size: 28px;
+            color: #4338ca;
+            transition: transform 0.6s ease infinite alternate;
+        }
+
+        .section-title:hover .material-icons {
+            animation: pulse 1.2s infinite ease-in-out alternate;
+        }
+
+        /* Keyframe pulse for icons */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* Tables for drug interactions & brands */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.8rem;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #c7d2fe;
+            padding: 0.6rem 1rem;
+            text-align: left;
+            vertical-align: middle;
+            word-break: break-word;
+        }
+
+        th {
+            background: #e0e7ff;
+            font-weight: 700;
+            color: #312e81;
+        }
+
+        /* Cards for adverse effects */
+        .adverse-list {
+            columns: 2;
+            column-gap: 2rem;
+            margin-top: 0.7rem;
+        }
+
+        /* Pill styled tags for pregnancy, warnings */
+        .pill {
+            display: inline-block;
+            background: #4338ca;
+            color: white;
+            padding: 0.2rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pill:hover,
+        .pill:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(67, 56, 202, 0.5);
+            outline: none;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #e0e7ff;
+            border-left: 4px solid #4338ca;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            color: #312e81;
+            font-weight: 600;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            box-shadow: 0 0 15px rgba(67, 56, 202, 0.4);
+        }
+
+        /* Footer styling */
+        footer p {
+            color: #ffffff;
+            margin: 0;
+            font-size: 0.875rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #f3f4f6;
+            border-bottom: 1px solid #cbd5e1;
+            z-index: 999;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #4338ca;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            flex-shrink: 0;
+            min-width: 80px;
+            text-align: center;
+            user-select: none;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background-color: #4338ca;
+            color: white;
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: 0 0 8px rgba(67, 56, 202, 0.5);
+        }
+
+        nav a.active {
+            background-color: #1e40af;
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width:1023px) {
+            main {
+                max-width: 95%;
+                margin: 2rem auto 3rem auto;
+            }
+
+            .adverse-list {
+                columns: 1;
+            }
+
+            nav {
+                gap: 0.5rem;
+                padding: 0.5rem 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.35rem 0.6rem;
+                min-width: 60px;
+            }
+        }
+
+        @media (max-width:639px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.125rem;
+            }
+
+            section {
+                padding: 1.25rem 1.5rem;
+                border-left-width: 4px;
+                margin-bottom: 1.75rem;
+            }
+
+            nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Brands list flex wrap */
+        #brands ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        #brands li {
+            background: #e0e7ff;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+            text-align: center;
+            flex: 1 1 200px;
+            max-width: 190px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            cursor: default;
+        }
+
+        #brands li:hover {
+            box-shadow: 0 15px 35px rgba(67, 56, 202, 0.3);
+            transform: translateY(-5px);
+        }
+
+        #brands li h4 {
+            margin: 0.75rem 0 0.4rem 0;
+        }
+
+        #brands li p {
+            margin: 0;
+            color: #4338ca;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>RIVAROXABAN</h1>
+        <h2>(RIV-a-ROX-a-ban)</h2>
+    </header>
+    <nav aria-label="Page sections navigation">
+        <a href="#intro" class="nav-link">Introduction</a>
+        <a href="#mechanism" class="nav-link">Mechanism</a>
+        <a href="#indications" class="nav-link">Indications & Dose</a>
+        <a href="#pharmacokinetics" class="nav-link">Pharmacokinetics</a>
+        <a href="#safety" class="nav-link">Safety Info</a>
+        <a href="#blackbox" class="nav-link">Black Box</a>
+        <a href="#pregnancy" class="nav-link">Pregnancy</a>
+        <a href="#contraindications" class="nav-link">Contraindications</a>
+        <a href="#caution" class="nav-link">Caution Labels</a>
+
+        <a href="#adverse" class="nav-link">Adverse Effects</a>
+        <a href="#interactions" class="nav-link">Drug Interactions</a>
+        <a href="#storage" class="nav-link">Storage</a>
+        <a href="#antidote" class="nav-link">Antidote</a>
+
+        <a href="#brands" class="nav-link">Brands</a>
+        <a href="#references" class="nav-link">References</a>
+    </nav>
+
+    <main>
+        <section aria-label="Key drug identifiers">
+            <div class="section-title" tabindex="0">
+                <span class="material-icons" aria-hidden="true">medical_information</span> Identifiers
+            </div>
+            <div class="identifier-flex"
+                style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px; flex-direction: row-reverse;">
+                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 220px; flex-shrink: 0;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Rivaroxaban2DCSD.svg/500px-Rivaroxaban2DCSD.svg.png"
+                        alt="Chemical structure 2D" style="width: 100%; height: auto; border-radius: 8px;" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Rivaroxaban_xtal_2005.png/500px-Rivaroxaban_xtal_2005.png"
+                        alt="Chemical structure 3D" style="width: 100%; height: auto; border-radius: 8px;" />
+                </div>
+                <div class="identifier-text" style="flex: 1; min-width: 250px;">
+                    <p><strong>Brand Names:</strong> Xarelto, Rivarox, Rixaban</p>
+                    <p><strong>Chemical Name:</strong>
+                        5-Chloro-N-[(5S)-2-oxo-3-[4-(3-oxo-4-morpholinyl)phenyl]-5-oxazolidinyl]methyl]-2-thiophenecarboxamide
+                    </p>
+                    <p><strong>Molecular Formula:</strong> C<sub>19</sub>H<sub>18</sub>ClN<sub>3</sub>O<sub>5</sub>S</p>
+                    <p><strong>Class:</strong> Direct Factor Xa Inhibitor</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="intro" tabindex="0" aria-label="Introduction to the drug Rivaroxaban">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">info</span> Introduction</div>
+            <p>
+                Rivaroxaban is an oral anticoagulant; a direct, activated factor X (Xa) inhibitor. Patented in 2007 and
+                approved in the United States in 2011, it is available as a generic medication and is listed on the
+                World Health Organization's List of Essential Medicines. In 2022, it ranked as the 90th most commonly
+                prescribed medication in the U.S. with over 7 million prescriptions.
+            </p>
+        </section>
+
+        <section id="mechanism" tabindex="0" aria-label="Mechanism of action">
+            <div class="section-title">
+                <span class="material-icons" aria-hidden="true">science</span> Mechanism of Action
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px;">
+                <div style="flex: 1; min-width: 250px;">
+                    <p>
+                        Rivaroxaban selectively inhibits Factor Xa, an essential enzyme in the coagulation cascade
+                        responsible
+                        for converting prothrombin to thrombin, thereby preventing fibrin clot formation.
+                    </p>
+                </div>
+                <div style="flex-shrink: 0; max-width: 400px; width: 100%;">
+                    <img src="https://www.frontiersin.org/files/Articles/66677/fphar-04-00145-HTML/image_m/fphar-04-00145-g001.jpg"
+                        alt="Mechanism of Action" style="width: 80%; height: auto; border-radius: 8px;" />
+                </div>
+            </div>
+        </section>
+
+
+        <section id="indications" tabindex="0" aria-label="Indications and doses">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">assignment_turned_in</span>
+                Indications and Dose</div>
+            <div class="grid-2col">
+                <article>
+                    <strong>Prophylaxis of venous thromboembolism following knee replacement surgery:</strong>
+                    <p>Adult: 10 mg once daily for 2 weeks, started 6–10 hours post-surgery.</p>
+                </article>
+                <article>
+                    <strong>Prophylaxis of venous thromboembolism following hip replacement surgery:</strong>
+                    <p>Adult: 10 mg once daily for 5 weeks, started 6–10 hours post-surgery.</p>
+                </article>
+                <article>
+                    <strong>Treatment of deep-vein thrombosis; pulmonary embolism:</strong>
+                    <p>Adult: 15 mg twice daily for 21 days with food, then maintenance 20 mg once daily with food.</p>
+                    <small>Consider long-term treatment for high risk or previous recurrence.</small>
+                </article>
+                <article>
+                    <strong>Prophylaxis of recurrent deep-vein thrombosis and pulmonary embolism:</strong>
+                    <p>Adult: 20 mg once daily with food.</p>
+                </article>
+                <article>
+                    <strong>Prophylaxis of stroke and systemic embolism in non-valvular atrial fibrillation
+                        patients:</strong>
+                    <p>Adult: 20 mg once daily with food. <em>Reduce to 15 mg if moderate renal impairment.</em></p>
+                </article>
+                <article>
+                    <strong>Prophylaxis of atherothrombotic events (with aspirin):</strong>
+                    <p>2.5 mg twice daily, usually for 12 months.</p>
+                </article>
+            </div>
+            <div class="section-title" style="margin-top:1.5rem;">Off-Label Uses</div>
+            <ul>
+                <li>Treatment of acute heparin-induced thrombocytopenia in stable patients.</li>
+                <li>Post-percutaneous coronary intervention with stent placement in nonvalvular atrial fibrillation.
+                </li>
+                <li>Acute, symptomatic superficial vein thrombosis.</li>
+                <li>Cerebral venous sinus thrombosis (CVST).</li>
+                <li>Cancer-associated thrombosis (CAT).</li>
+                <li>Extended thromboprophylaxis in high-risk orthopedic cases.</li>
+                <li>Patients with left ventricular thrombus (limited data).</li>
+            </ul>
+        </section>
+
+        <section id="pharmacokinetics" tabindex="0" aria-label="Pharmacokinetics">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">medication</span>
+                Pharmacokinetics</div>
+            <div style="text-align: center;">
+                <img src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/26e1/3889701/289e04f188e9/40262_2013_100_Fig2_HTML.jpg"
+                    alt="Pharmacokinetics"
+                    style="max-width: 100%; height: auto; margin-bottom: 1rem; border-radius: 8px;" />
+            </div>
+
+            <ul>
+                <li>Time to peak plasma concentration: 2–4 hours</li>
+                <li>Protein binding: 92–95%</li>
+                <li>Half-life: 5–9 hours (young), 11–13 hours (elderly)</li>
+            </ul>
+        </section>
+
+        <section id="safety" tabindex="0" aria-label="Important safety information, contraindications, warnings">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">warning</span> Important Safety
+                Information</div>
+            <div class="highlight-box">
+                <strong>Risk in Antiphospholipid Syndrome (APS):</strong> Not recommended for APS patients with history
+                of blood clots or triple positive markers; consider vitamin K antagonists instead.
+            </div>
+            <div class="highlight-box">
+                <strong>Bleeding Risk & Food Requirements:</strong>
+
+                Doses of 15 mg or 20 mg must be taken with food for proper absorption.</li>
+
+            </div>
+            <div class="highlight-box">
+                <strong>Patient Counseling:</strong> Monitor for serious bleeding signs (black stools, blood in urine,
+                severe headaches, dizziness). Educate on bleeding risk and taking medication with food.
+            </div>
+
+
+        </section>
+
+
+        <!-- Black Box Warning -->
+        <section id="blackbox" tabindex="0" aria-label="Black box warning section">
+            <div class="section-title">
+                <span class="material-icons" aria-hidden="true">report</span> Black Box Warning
+            </div>
+            <div class="highlight-box">
+                <ul>
+                    <li>Epidural or spinal hematomas may occur, possibly causing permanent paralysis. Risk increases
+                        with
+                        epidural catheters, concomitant anticoagulants, NSAIDs, or spinal surgery/trauma.</li>
+                    <li>Early stopping increases thrombotic risk; consult medical guidance.</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- Pregnancy Category -->
+        <section id="pregnancy" tabindex="0" aria-label="Pregnancy risk category">
+            <div class="section-title">
+                <span class="material-icons" aria-hidden="true">pregnant_woman</span> Pregnancy Category: C
+            </div>
+            <div class="highlight-box">
+                Use only if benefits justify fetal risks. Crosses placenta, increasing bleeding risk.
+                Women of reproductive age should discuss plans, especially with abnormal bleeding or needing long-term
+                anticoagulation.
+            </div>
+        </section>
+
+        <!-- Contraindications -->
+        <section id="contraindications" tabindex="0" aria-label="Contraindications section">
+            <div class="section-title">
+                <span class="material-icons" aria-hidden="true">block</span> Contraindications
+            </div>
+            <ul>
+                <li>Active bleeding-antiphospholipid syndrome</li>
+                <li>Severe renal impairment (CrCl &lt;15 mL/min)</li>
+                <li>Hepatic disease with coagulopathy</li>
+                <li>Hypersensitivity to rivaroxaban</li>
+                <li>Recent brain, spinal, ophthalmic, or hip fracture surgery</li>
+            </ul>
+        </section>
+
+        <section id="caution" tabindex="0" aria-label="Cautionary and auxiliary labels">
+            <div class="section-title">
+                <span class="material-icons" aria-hidden="true">info</span> Cautionary & Auxiliary Label
+            </div>
+
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <img src="https://dailymed.nlm.nih.gov/dailymed/image.cfm?name=Xarelto-34.jpg&id=869045"
+                    alt="Cautionary and auxiliary drug label example"
+                    style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section id="adverse" tabindex="0" aria-label="Adverse effects">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">healing</span> Adverse Effects
+                (1-10%)</div>
+            <ul class="adverse-list">
+                <li>Hematoma/Anemia (&lt;3%)</li>
+                <li>Back pain (2.9%)</li>
+                <li>Wound secretion (2.8%)</li>
+                <li>Abdominal pain (2.7%)</li>
+                <li>Dizziness (2.2%)</li>
+                <li>Pruritus (2.1-2.2%)</li>
+                <li>Pain in extremity (1.7%)</li>
+                <li>Blister (1.4%)</li>
+                <li>Fatigue (1.4%)</li>
+                <li>Muscle spasm (1.3%)</li>
+                <li>Syncope (1.2%)</li>
+                <li>Anxiety (1.4%)</li>
+                <li>Depression (1.2%)</li>
+                <li>Insomnia (1.6%)</li>
+            </ul>
+        </section>
+
+        <section id="interactions" tabindex="0" aria-label="Drug interactions table">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">sync_alt</span> Drug Interactions
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Interacting Drug</th>
+                        <th>Mechanism</th>
+                        <th>Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ketoconazole</td>
+                        <td>Strong CYP3A4/P-gp inhibition</td>
+                        <td>Increased rivaroxaban plasma levels → bleeding risk</td>
+                    </tr>
+                    <tr>
+                        <td>Rifampin</td>
+                        <td>Strong CYP3A4/P-gp induction</td>
+                        <td>Decreased rivaroxaban exposure → reduced efficacy</td>
+                    </tr>
+                    <tr>
+                        <td>Bivalirudin (or Apixaban)</td>
+                        <td>Additive anticoagulation effect</td>
+                        <td>Increased bleeding risk</td>
+                    </tr>
+                    <tr>
+                        <td>NSAIDs (e.g. aspirin, celecoxib)</td>
+                        <td>Pharmacodynamic synergism (platelet inhibition)</td>
+                        <td>Slight increased bleeding risk</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="storage" tabindex="0" aria-label="Storage instructions">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">inventory_2</span> Storage</div>
+            <p>
+                Tablets: Store at room temperature, 25ºC (77ºF); excursions permitted to 15-30ºC (59-86ºF).<br />
+                Crushed tablets in water or applesauce: Store at room temperature, 25ºC (77ºF) for up to 4 hours.
+            </p>
+        </section>
+
+        <section id="antidote" tabindex="0" aria-label="Antidote information">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">medication</span> Antidote</div>
+            <p>
+                Andexanet alfa (FDA-approved) or Prothrombin Complex Concentrate (PCC) may be administered for
+                life-threatening bleeding.
+            </p>
+        </section>
+
+        <section id="brands" tabindex="0" aria-label="Common brands in Pakistan with images">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">local_pharmacy</span> Common
+                Brands in Pakistan</div>
+            <ul>
+                <li>
+                    <img src="https://medicalstore.com.pk/wp-content/uploads/2020/05/36447Rivaro-tab-2-768x768.png"
+                        alt="Rivaro Highnoon brand packaging with 10mg,15mg,2.5mg,20mg tablets in Pakistan"
+                        onerror="this.style.display='none'" />
+                    <h4>Rivaro (Highnoon)</h4>
+                    <p>10, 15, 2.5, 20 mg tablets</p>
+                </li>
+
+                <li>
+                    <img src="data:image/jpeg;base64,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"
+                        alt="Rivaxo Getz pharmaceutical brand rivaroxaban tablets packaging in Pakistan"
+                        onerror="this.style.display='none'" />
+                    <h4>Rivaxo (Getz)</h4>
+                    <p>10, 15, 20 mg tablets</p>
+                </li>
+                <li>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e98fa2ed-d28b-4a04-84d2-007a8f0e6763.png"
+                        alt="Xarelto Bayer brand rivaroxaban tablets packaging in Pakistan"
+                        onerror="this.style.display='none'" />
+                    <h4>Xarelto (Bayer)</h4>
+                    <p>10, 15, 20 mg tablets</p>
+                </li>
+                <li>
+                    <img src="https://searlecompany.com/wp-content/uploads/2021/09/206.jpg"
+                        alt="Xaroban Searle brand rivaroxaban tablets packaging in Pakistan"
+                        onerror="this.style.display='none'" />
+                    <h4>Xaroban (Searle)</h4>
+                    <p>10, 15, 2.5, 20 mg tablets</p>
+                </li>
+                <li>
+                    <img src="data:image/jpeg;base64,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"
+                        alt="Ritban Sami pharmaceutical brand packaging of rivaroxaban tablets in Pakistan"
+                        onerror="this.style.display='none'" />
+                    <h4>Ritban (Sami ph.)</h4>
+                    <p>10, 15, 2.5, 20 mg tablets</p>
+                </li>
+            </ul>
+        </section>
+
+
+
+        <section id="references" tabindex="0" aria-label="References">
+            <div class="section-title"><span class="material-icons" aria-hidden="true">menu_book</span> References</div>
+            <ol>
+                <li>BNF 2024-25, Pg: 148</li>
+                <li>PharmaGuide, 31st edition</li>
+                <li><a href="https://en.wikipedia.org/wiki/Rivaroxaban">Wikipedia – Rivaroxaban </a></li>
+                <li><a href="https://reference.medscape.com/drug/xarelto-rivaroxaban-999670">Medscape – Xarelto
+                        (Rivaroxaban)</a></li>
+                <li><a href="https://reference.medscape.com/drug/xarelto-rivaroxaban-999670">NCBI Bookshelf –
+                        Rivaroxaban</a></li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Drug Monograph. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navigation active link highlight on scroll
+        const sections = document.querySelectorAll('main section[id], main section');
+        const navLinks = document.querySelectorAll('nav a.nav-link');
+
+        function setActiveLink() {
+            let scrollPos = window.scrollY + window.innerHeight / 5;
+            sections.forEach(section => {
+                if (!section.id) return;
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+                const navLink = document.querySelector(`nav a[href="#${section.id}"]`);
+
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) navLink.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+
+        // Smooth scrolling for nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Set initial active link on load
+        window.addEventListener('load', setActiveLink);
+
+        // Fade-in scroll animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("section-visible");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('main section').forEach(section => {
+            observer.observe(section);
+            // Add the section-visible class to all sections immediately to prevent hiding content on load
+            section.classList.add("section-visible");
+        });
+    </script>
+
+</body>
+
+</html>
